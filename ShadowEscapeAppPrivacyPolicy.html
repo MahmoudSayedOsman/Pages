@@ -100,12 +100,12 @@
   <header>
     <span class="game">Shadow Escape</span>
     <h1>Privacy Policy</h1>
-    <span class="meta">MMSO Soft · Effective 25 September 2026</span>
+    <span class="meta">MMSO Soft · Effective 27 September 2026</span>
     <nav><a href="#en">English</a><a href="#ar" lang="ar">العربية</a></nav>
   </header>
 
   <article id="en" lang="en">
-    <p class="summary">Shadow Escape does not ask for your name, email or any account, and your game progress never leaves your phone. The only data that leaves the device is what Google collects to show ads, and, if you buy something, what Google Play needs to process the purchase.</p>
+    <p class="summary">Shadow Escape does not ask for your name, email or any account. A backup of your game progress is kept in Google's Firebase under a random ID that is not linked to you, and crash reports help us fix bugs. Apart from that, the only data that leaves the device is what Google collects to show ads, and, if you buy something, what Google Play needs to process the purchase.</p>
 
     <section>
       <h2>Who we are</h2>
@@ -114,7 +114,28 @@
 
     <section>
       <h2>What stays on your device</h2>
-      <p>Your progress, stars, coins, upgrades, settings, control layout and whether you have bought Remove Ads are stored only on your phone. We do not run servers and do not receive this information. Uninstalling the game, or using Settings → Gameplay → Reset Save Data, deletes it.</p>
+      <p>Your settings, control layout and whether you have bought Remove Ads are stored only on your phone. Your progress (stars, levels completed, coins, upgrades and achievements) is stored on your phone and backed up as described below. Using Settings → Gameplay → Reset Save Data deletes your progress on the phone and replaces the backup with an empty one.</p>
+    </section>
+
+    <section>
+      <h2>Progress backup (Google Firebase)</h2>
+      <p>So that your progress is not lost, the game keeps a copy of it in Google Firebase (Firebase Authentication and Realtime Database; the backup itself is stored in the EU). To do this, Firebase gives this installation a random anonymous ID. The ID is not linked to your name, email, Google account or advertising ID, and the backup contains only game progress. Only this installation can read or change its own backup.</p>
+      <p>Because the backup is anonymous, we cannot find it from your name or email. Reset Save Data empties it. If you uninstall the game, its anonymous ID is lost with it and the backup can no longer be reached by anyone.</p>
+    </section>
+
+    <section>
+      <h2>Daily Climb leaderboard</h2>
+      <p>When you finish a Daily Climb, your best floor of the day is sent to the same Firebase database, together with a random number, so it can appear on that day's public leaderboard. Other players see you under a made-up name the game builds from that number (for example "Silent Crane 4821"). Nothing you type is sent or shown, and the anonymous ID used for the backup is never displayed.</p>
+    </section>
+
+    <section>
+      <h2>Crash reports (Firebase Crashlytics)</h2>
+      <p>If the game crashes or hits an error, Firebase Crashlytics sends a report so we can fix it. A report contains what the game was doing when it failed, the device model, operating system version, app version, the amount of free memory and storage, and a random installation ID used to count how many devices a problem affects. It does not contain your progress or anything that identifies you. Google keeps crash reports for 90 days.</p>
+    </section>
+
+    <section>
+      <h2>Game settings from the server (Firebase Remote Config)</h2>
+      <p>The game downloads a few settings from Firebase Remote Config, such as how often ads may appear and how many coins a star gives, so we can adjust them without an update. To deliver them, Firebase uses a random installation ID and basic device and app information. Firebase's own analytics is switched off in the game.</p>
     </section>
 
     <section>
@@ -146,7 +167,7 @@
 
     <section>
       <h2>What we do not collect</h2>
-      <p>The game does not access your contacts, photos, camera, microphone or precise location, does not use analytics of its own, and does not sell or share personal data with anyone other than the Google services described above.</p>
+      <p>The game does not access your contacts, photos, camera, microphone or precise location, does not use analytics (Firebase Analytics is switched off), and does not sell or share personal data with anyone other than the Google services described above.</p>
     </section>
 
     <section>
@@ -156,12 +177,12 @@
 
     <section>
       <h2>Your rights</h2>
-      <p>Depending on where you live (including under the GDPR, the UK GDPR and the CCPA/CPRA), you may have the right to access, correct or delete your personal data, to object to or restrict its processing, and to withdraw consent. Because we hold no personal data ourselves, most requests are answered by the controls above and by Google's tools at <a href="https://myaccount.google.com/data-and-privacy">myaccount.google.com</a>. For anything else, email us and we will reply within one month. You may also complain to your local data protection authority.</p>
+      <p>Depending on where you live (including under the GDPR, the UK GDPR and the CCPA/CPRA), you may have the right to access, correct or delete your personal data, to object to or restrict its processing, and to withdraw consent. Because the data we hold is anonymous and cannot be linked to you, most requests are answered by the controls above and by Google's tools at <a href="https://myaccount.google.com/data-and-privacy">myaccount.google.com</a>. For anything else, email us and we will reply within one month. You may also complain to your local data protection authority.</p>
     </section>
 
     <section>
       <h2>Legal basis (EEA and UK)</h2>
-      <p>Personalised advertising is based on your consent. Non-personalised advertising, fraud prevention and processing purchases are based on our legitimate interest in funding and operating a free game, and on performing the purchase you asked for.</p>
+      <p>Personalised advertising is based on your consent. Non-personalised advertising, fraud prevention and processing purchases are based on our legitimate interest in funding and operating a free game, and on performing the purchase you asked for. The progress backup, crash reports and server settings are based on our legitimate interest in keeping your progress safe and the game working.</p>
     </section>
 
     <section>
@@ -171,7 +192,7 @@
   </article>
 
   <article id="ar" lang="ar" dir="rtl">
-    <p class="summary">لعبة Shadow Escape لا تطلب اسمك أو بريدك أو أي حساب، وتقدّمك في اللعبة لا يخرج من هاتفك أبدًا. البيانات الوحيدة التي تغادر الجهاز هي ما تجمعه Google لعرض الإعلانات، وما يحتاجه Google Play لإتمام الشراء إن اشتريت شيئًا.</p>
+    <p class="summary">لعبة Shadow Escape لا تطلب اسمك أو بريدك أو أي حساب. تُحفظ نسخة احتياطية من تقدّمك في اللعبة على Firebase من Google تحت معرّف عشوائي غير مرتبط بك، وتساعدنا تقارير الأعطال في إصلاح المشاكل. وبخلاف ذلك، البيانات الوحيدة التي تغادر الجهاز هي ما تجمعه Google لعرض الإعلانات، وما يحتاجه Google Play لإتمام الشراء إن اشتريت شيئًا.</p>
 
     <section>
       <h2>من نحن</h2>
@@ -180,7 +201,28 @@
 
     <section>
       <h2>ما يبقى على جهازك</h2>
-      <p>تقدّمك ونجومك وعملاتك وترقياتك وإعداداتك وتوزيع أزرار التحكم، وما إذا كنت قد اشتريت إزالة الإعلانات، كلها محفوظة على هاتفك فقط. نحن لا نشغّل أي خوادم ولا نستلم هذه البيانات. حذف اللعبة، أو استخدام الإعدادات ← أسلوب اللعب ← إعادة ضبط بيانات الحفظ، يحذفها.</p>
+      <p>إعداداتك وتوزيع أزرار التحكم، وما إذا كنت قد اشتريت إزالة الإعلانات، محفوظة على هاتفك فقط. أما تقدّمك (النجوم والمراحل المكتملة والعملات والترقيات والإنجازات) فمحفوظ على هاتفك، وله نسخة احتياطية كما هو موضح أدناه. استخدام الإعدادات ← أسلوب اللعب ← إعادة ضبط بيانات الحفظ يحذف تقدّمك من الهاتف ويستبدل النسخة الاحتياطية بنسخة فارغة.</p>
+    </section>
+
+    <section>
+      <h2>النسخة الاحتياطية للتقدّم (<span class="ltr">Google Firebase</span>)</h2>
+      <p>حتى لا يضيع تقدّمك، تحتفظ اللعبة بنسخة منه على <span class="ltr">Google Firebase</span> (خدمتا <span class="ltr">Firebase Authentication</span> و<span class="ltr">Realtime Database</span>، والنسخة نفسها محفوظة داخل الاتحاد الأوروبي). لذلك يعطي Firebase هذا التثبيت معرّفًا عشوائيًا مجهول الهوية، غير مرتبط باسمك أو بريدك أو حساب Google أو المعرّف الإعلاني، والنسخة الاحتياطية لا تحتوي إلا على تقدّم اللعبة. ولا يستطيع قراءة النسخة أو تعديلها إلا هذا التثبيت نفسه.</p>
+      <p>ولأن النسخة مجهولة الهوية، لا يمكننا العثور عليها من اسمك أو بريدك. إعادة ضبط بيانات الحفظ تفرّغها. وإذا حذفت اللعبة، يضيع معرّفها المجهول معها ولا يعود بإمكان أي أحد الوصول إلى تلك النسخة.</p>
+    </section>
+
+    <section>
+      <h2>لوحة صدارة التسلق اليومي</h2>
+      <p>عندما تنهي تسلقًا يوميًا، يُرسَل أفضل طابق وصلت إليه في ذلك اليوم إلى قاعدة بيانات <span class="ltr">Firebase</span> نفسها، ومعه رقم عشوائي، ليظهر في لوحة الصدارة العامة لذلك اليوم. يراك اللاعبون الآخرون باسم مُختلَق تبنيه اللعبة من ذلك الرقم (مثل «الكركي الصامت 4821»). لا يُرسَل ولا يُعرَض أي شيء تكتبه، ولا يظهر المعرّف المجهول المستخدم للنسخة الاحتياطية أبدًا.</p>
+    </section>
+
+    <section>
+      <h2>تقارير الأعطال (<span class="ltr">Firebase Crashlytics</span>)</h2>
+      <p>إذا توقفت اللعبة أو حدث خطأ، ترسل <span class="ltr">Firebase Crashlytics</span> تقريرًا حتى نصلحه. يحتوي التقرير على ما كانت اللعبة تفعله لحظة الخطأ، وطراز الجهاز، وإصدار نظام التشغيل، وإصدار اللعبة، والمساحة المتاحة من الذاكرة والتخزين، ومعرّف تثبيت عشوائي نعرف به عدد الأجهزة التي تأثرت بالمشكلة. لا يحتوي على تقدّمك ولا على أي شيء يحدد هويتك. تحتفظ Google بتقارير الأعطال لمدة 90 يومًا.</p>
+    </section>
+
+    <section>
+      <h2>إعدادات اللعبة من الخادم (<span class="ltr">Firebase Remote Config</span>)</h2>
+      <p>تنزّل اللعبة بعض الإعدادات من <span class="ltr">Firebase Remote Config</span>، مثل عدد مرات ظهور الإعلانات وعدد العملات التي تعطيها النجمة، حتى نعدّلها دون تحديث. ولتوصيلها يستخدم Firebase معرّف تثبيت عشوائيًا ومعلومات أساسية عن الجهاز واللعبة. أدوات التحليل الخاصة بـ Firebase معطّلة داخل اللعبة.</p>
     </section>
 
     <section>
@@ -212,7 +254,7 @@
 
     <section>
       <h2>ما لا نجمعه</h2>
-      <p>لا تصل اللعبة إلى جهات الاتصال أو الصور أو الكاميرا أو الميكروفون أو موقعك الدقيق، ولا تستخدم أي أدوات تحليل خاصة بها، ولا تبيع أو تشارك بيانات شخصية مع أي جهة غير خدمات Google المذكورة أعلاه.</p>
+      <p>لا تصل اللعبة إلى جهات الاتصال أو الصور أو الكاميرا أو الميكروفون أو موقعك الدقيق، ولا تستخدم أي أدوات تحليل (أدوات التحليل في Firebase معطّلة)، ولا تبيع أو تشارك بيانات شخصية مع أي جهة غير خدمات Google المذكورة أعلاه.</p>
     </section>
 
     <section>
@@ -222,12 +264,12 @@
 
     <section>
       <h2>حقوقك</h2>
-      <p>بحسب مكان إقامتك (بما في ذلك اللائحة الأوروبية العامة لحماية البيانات وقوانين كاليفورنيا)، قد يكون لك الحق في الوصول إلى بياناتك الشخصية أو تصحيحها أو حذفها، والاعتراض على معالجتها أو تقييدها، وسحب موافقتك. ولأننا لا نحتفظ بأي بيانات شخصية بأنفسنا، فإن أغلب الطلبات تتم عبر الخيارات أعلاه وأدوات Google على <a class="ltr" href="https://myaccount.google.com/data-and-privacy">myaccount.google.com</a>. لأي طلب آخر، راسلنا وسنرد خلال شهر. ويمكنك أيضًا تقديم شكوى إلى هيئة حماية البيانات في بلدك.</p>
+      <p>بحسب مكان إقامتك (بما في ذلك اللائحة الأوروبية العامة لحماية البيانات وقوانين كاليفورنيا)، قد يكون لك الحق في الوصول إلى بياناتك الشخصية أو تصحيحها أو حذفها، والاعتراض على معالجتها أو تقييدها، وسحب موافقتك. ولأن البيانات التي نحتفظ بها مجهولة الهوية ولا يمكن ربطها بك، فإن أغلب الطلبات تتم عبر الخيارات أعلاه وأدوات Google على <a class="ltr" href="https://myaccount.google.com/data-and-privacy">myaccount.google.com</a>. لأي طلب آخر، راسلنا وسنرد خلال شهر. ويمكنك أيضًا تقديم شكوى إلى هيئة حماية البيانات في بلدك.</p>
     </section>
 
     <section>
       <h2>الأساس القانوني (أوروبا والمملكة المتحدة)</h2>
-      <p>الإعلانات المخصصة تعتمد على موافقتك. أما الإعلانات غير المخصصة ومنع الاحتيال وإتمام المشتريات فتعتمد على مصلحتنا المشروعة في تمويل لعبة مجانية وتشغيلها، وعلى تنفيذ عملية الشراء التي طلبتها.</p>
+      <p>الإعلانات المخصصة تعتمد على موافقتك. أما الإعلانات غير المخصصة ومنع الاحتيال وإتمام المشتريات فتعتمد على مصلحتنا المشروعة في تمويل لعبة مجانية وتشغيلها، وعلى تنفيذ عملية الشراء التي طلبتها. أما النسخة الاحتياطية وتقارير الأعطال والإعدادات من الخادم فتعتمد على مصلحتنا المشروعة في الحفاظ على تقدّمك وعمل اللعبة بشكل سليم.</p>
     </section>
 
     <section>
