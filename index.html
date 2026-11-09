@@ -1,224 +1,329 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MMSO Soft | Official Website</title>
-    <style>
-        :root {
-            --bg-color: #0b0c10;
-            --text-main: #c5c6c7;
-            --accent-color: #66fcf1;
-            --accent-dark: #45a29e;
-            --dark-card: #1f2833;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MMSO Soft</title>
+<meta name="description" content="MMSO Soft makes games for Android. Shadow Escape is out now on Google Play; Dahshan El-Tarshawily is coming soon.">
+<meta property="og:title" content="MMSO Soft">
+<meta property="og:description" content="Shadow Escape, out now on Google Play. Dahshan El-Tarshawily, coming soon.">
+<meta property="og:image" content="https://mmsosoft.com/media/shadow-escape-feature.jpg">
+<link rel="icon" href="media/shadow-escape-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lalezar&family=Readex+Pro:wght@300;400;600;700&display=swap">
+<style>
+  /* One night-time world for the whole site, painted explicitly so it holds on any browser theme. */
+  :root {
+    --ink: #0e0c15;
+    --panel: #17141f;
+    --line: #2b2638;
+    --text: #ece8f4;
+    --muted: #a9a2b9;
+    --violet: #c9b3f2;
+    --violet-deep: #6b4fa8;
+    --saffron: #f3a73b;
+    --saffron-deep: #8a4b12;
+    --radius: 14px;
+    --gutter: clamp(16px, 5vw, 64px);
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--ink);
+    color: var(--text);
+    font-family: "Readex Pro", "Segoe UI", Tahoma, sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+  img, video { display: block; max-width: 100%; height: auto; }
+  a { color: inherit; }
+  :focus-visible { outline: 2px solid var(--violet); outline-offset: 3px; border-radius: 4px; }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+  /* The page carries both languages; the root's lang shows one. */
+  html[lang="ar"] [lang="en"]:not(html) { display: none !important; }
+  html[lang="en"] [lang="ar"]:not(html) { display: none !important; }
 
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            line-height: 1.6;
-        }
+  .wrap { width: min(1180px, 100% - 2 * var(--gutter)); margin-inline: auto; }
 
-        /* Navbar */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 5%;
-            background-color: rgba(11, 12, 16, 0.95);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid #1f2833;
-        }
+  /* Header */
+  header {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(14, 12, 21, 0.86);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 64px; }
+  .brand { font-weight: 700; letter-spacing: 0.14em; font-size: 1.05rem; text-decoration: none; direction: ltr; }
+  .brand b { color: var(--violet); font-weight: 700; }
+  nav { display: flex; align-items: center; gap: clamp(12px, 3vw, 28px); font-size: 0.95rem; }
+  nav a { text-decoration: none; color: var(--muted); transition: color 0.2s; }
+  nav a:hover { color: var(--text); }
+  .lang {
+    font: inherit; font-size: 0.85rem; cursor: pointer;
+    color: var(--text); background: transparent;
+    border: 1px solid var(--line); border-radius: 999px; padding: 4px 14px;
+  }
+  .lang:hover { border-color: var(--violet); }
+  @media (max-width: 560px) { nav .hide-sm { display: none; } }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #fff;
-            letter-spacing: 2px;
-        }
+  /* Shadow Escape */
+  .game {
+    position: relative; isolation: isolate;
+    padding: clamp(40px, 7vw, 96px) 0 clamp(48px, 7vw, 88px);
+  }
+  .game::before {
+    content: ""; position: absolute; inset: 0; z-index: -1;
+    background:
+      linear-gradient(180deg, rgba(14,12,21,0.55) 0%, rgba(14,12,21,0.92) 60%, var(--ink) 100%),
+      url("media/shadow-escape-feature.jpg") center top / cover no-repeat;
+  }
+  .game-grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(24px, 4vw, 56px); align-items: center; }
+  @media (max-width: 900px) { .game-grid { grid-template-columns: 1fr; } }
 
-        .logo span {
-            color: var(--accent-color);
-        }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 0.8rem; font-weight: 600; letter-spacing: 0.08em;
+    padding: 4px 12px; border-radius: 999px;
+    color: var(--ink); background: var(--violet);
+  }
+  .eyebrow.soon { background: var(--saffron); }
+  .title-row { display: flex; align-items: center; gap: 16px; margin: 18px 0 8px; }
+  .title-row img { width: 64px; height: 64px; border-radius: 14px; flex: none; }
+  h1, h2 { line-height: 1.15; text-wrap: balance; }
+  h1 { font-size: clamp(2.1rem, 5vw, 3.4rem); font-weight: 700; letter-spacing: 0.01em; direction: ltr; }
+  html[dir="rtl"] h1 { text-align: right; }
+  .lead { color: var(--muted); font-size: 1.08rem; max-width: 34em; }
+  .lead strong { color: var(--text); font-weight: 600; }
 
-        nav a {
-            color: var(--text-main);
-            text-decoration: none;
-            margin-left: 30px;
-            font-size: 0.9rem;
-            transition: color 0.3s;
-        }
+  .facts { display: flex; flex-wrap: wrap; gap: 10px 26px; margin: 22px 0 28px; }
+  .fact { display: flex; flex-direction: column; }
+  .fact b { font-size: 1.6rem; font-weight: 700; color: var(--text); font-variant-numeric: tabular-nums; line-height: 1.2; }
+  .fact span { font-size: 0.82rem; color: var(--muted); }
 
-        nav a:hover {
-            color: var(--accent-color);
-        }
+  .play {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 12px 22px; border-radius: 12px; text-decoration: none; font-weight: 600;
+    background: var(--text); color: var(--ink); transition: transform 0.15s, box-shadow 0.2s;
+  }
+  .play:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(201, 179, 242, 0.25); }
+  .play svg { width: 22px; height: 22px; flex: none; }
 
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 0 20px;
-            background: radial-gradient(circle at center, #1f2833 0%, #0b0c10 70%);
-            margin-top: 60px;
-        }
+  .player {
+    position: relative; border-radius: var(--radius); overflow: hidden;
+    border: 1px solid var(--line); background: #000;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(201, 179, 242, 0.08);
+  }
+  .player video { width: 100%; aspect-ratio: 16 / 9; object-fit: contain; background: #000; }
+  .player.tall { max-width: 380px; margin-inline: auto; }
+  .player.tall video { aspect-ratio: 9 / 16; }
+  .caption { font-size: 0.82rem; color: var(--muted); margin-top: 10px; }
 
-        .game-title {
-            font-size: 4rem;
-            color: #fff;
-            text-transform: uppercase;
-            letter-spacing: 5px;
-            margin-bottom: 15px;
-            text-shadow: 0 0 20px rgba(102, 252, 241, 0.3);
-        }
+  /* Screenshots */
+  .shots-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 14px; }
+  h2 { font-size: clamp(1.4rem, 3vw, 1.9rem); font-weight: 700; }
+  .muted { color: var(--muted); }
+  .shots {
+    display: grid; grid-auto-flow: column; grid-auto-columns: min(78%, 420px); gap: 14px;
+    overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 12px;
+    scrollbar-color: var(--line) transparent;
+  }
+  .shots figure { scroll-snap-align: start; }
+  .shots img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 10px; border: 1px solid var(--line); }
+  .shots figcaption { font-size: 0.82rem; color: var(--muted); margin-top: 6px; }
 
-        .game-subtitle {
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin-bottom: 40px;
-        }
+  .points { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 14px; margin-top: 36px; }
+  .point { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px 22px; }
+  .point h3 { font-size: 1.02rem; font-weight: 600; margin-bottom: 6px; }
+  .point p { color: var(--muted); font-size: 0.95rem; }
 
-        .cta-btn {
-            padding: 15px 40px;
-            background-color: transparent;
-            color: var(--accent-color);
-            border: 2px solid var(--accent-color);
-            font-size: 1.1rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
+  /* Coming soon: the second game's own warm palette, so it reads as a different world. */
+  .soon-band { padding: clamp(48px, 7vw, 96px) 0; background: linear-gradient(180deg, var(--ink), #1a120c 30%, #1a120c 70%, var(--ink)); }
+  .soon-card {
+    display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); align-items: stretch;
+    border-radius: 20px; overflow: hidden;
+    background: #24170d; border: 1px solid #4a2f17;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+  }
+  @media (max-width: 900px) { .soon-card { grid-template-columns: 1fr; } }
+  .soon-art { position: relative; min-height: 260px; }
+  .soon-art img { width: 100%; height: 100%; object-fit: cover; }
+  .soon-text { padding: clamp(24px, 4vw, 44px); display: flex; flex-direction: column; gap: 14px; justify-content: center; }
+  .dahshan {
+    font-family: "Lalezar", "Readex Pro", sans-serif; font-weight: 400;
+    font-size: clamp(2rem, 4.5vw, 3rem); line-height: 1.15; color: #fff3df;
+    direction: rtl; text-align: start;
+  }
+  html[dir="ltr"] .dahshan { text-align: left; }
+  .dahshan small { display: block; font-size: 0.6em; color: var(--saffron); }
+  .soon-text p { color: #e2cfb6; }
+  .soon-text .muted { color: #b89c7c; font-size: 0.9rem; }
+  .soon-icon { width: 56px; height: 56px; border-radius: 12px; border: 1px solid #4a2f17; }
 
-        .cta-btn:hover {
-            background-color: var(--accent-color);
-            color: var(--bg-color);
-            box-shadow: 0 0 20px rgba(102, 252, 241, 0.5);
-        }
+  footer { border-top: 1px solid var(--line); padding: 32px 0 40px; color: var(--muted); font-size: 0.9rem; }
+  .foot { display: flex; flex-wrap: wrap; gap: 12px 28px; justify-content: space-between; align-items: center; }
+  .foot nav { flex-wrap: wrap; gap: 10px 22px; }
+  .foot a { color: var(--muted); text-decoration: none; }
+  .foot a:hover { color: var(--text); text-decoration: underline; }
 
-        /* Features Section */
-        .features {
-            padding: 80px 5%;
-            text-align: center;
-        }
-
-        .features h2 {
-            font-size: 2.5rem;
-            color: #fff;
-            margin-bottom: 50px;
-        }
-
-        .cards {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-        }
-
-        .card {
-            background-color: var(--dark-card);
-            padding: 30px;
-            border-radius: 10px;
-            width: 300px;
-            border-top: 3px solid var(--accent-dark);
-            transition: transform 0.3s;
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-        }
-
-        .card h3 {
-            color: #fff;
-            margin-bottom: 15px;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 30px;
-            background-color: var(--dark-card);
-            margin-top: 50px;
-        }
-
-        footer p {
-            margin-bottom: 10px;
-            font-size: 0.9rem;
-        }
-
-        footer a {
-            color: var(--accent-color);
-            text-decoration: none;
-            font-size: 0.9rem;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
-            .game-title { font-size: 2.5rem; }
-            header { flex-direction: column; gap: 15px; }
-            nav a { margin: 0 10px; }
-        }
-    </style>
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .play { transition: none; }
+  }
+</style>
 </head>
 <body>
 
-    <header>
-        <div class="logo">MMSO <span>Soft</span></div>
-        <nav>
-            <a href="#">Home</a>
-            <a href="#about">About Game</a>
-            <a href="ShadowEscapeAppPrivacyPolicy.html">Privacy Policy</a>
-        </nav>
-    </header>
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="#top">MMSO <b>Soft</b></a>
+    <nav aria-label="Main">
+      <a href="#shadow-escape"><span lang="ar">Shadow Escape</span><span lang="en">Shadow Escape</span></a>
+      <a href="#coming-soon" class="hide-sm"><span lang="ar">قريبًا</span><span lang="en">Coming soon</span></a>
+      <button class="lang" type="button" id="lang-toggle" aria-label="Switch language">
+        <span lang="ar">English</span><span lang="en">العربية</span>
+      </button>
+    </nav>
+  </div>
+</header>
 
-    <section class="hero">
-        <h1 class="game-title">Shadow Escape</h1>
-        <p class="game-subtitle">A thrilling 2D Dark Fantasy Action Game. Survive the darkness, face the stone guardians, and escape the shadows.</p>
-        <a href="#" class="cta-btn">Coming Soon to Google Play</a>
-    </section>
+<main id="top">
 
-    <section id="about" class="features">
-        <h2>Features</h2>
-        <div class="cards">
-            <div class="card">
-                <h3>Intense 2D Action</h3>
-                <p>Master fast-paced combat against shadow hounds and brutal enemies in a dark fantasy world.</p>
-            </div>
-            <div class="card">
-                <h3>Unique Levels</h3>
-                <p>Navigate through beautifully crafted environments filled with deadly traps and mysteries.</p>
-            </div>
-            <div class="card">
-                <h3>Free to Play</h3>
-                <p>Enjoy the full experience for free. Watch optional ads to revive or double your hard-earned coins.</p>
-            </div>
+  <section class="game" id="shadow-escape" aria-labelledby="se-title">
+    <div class="wrap game-grid">
+      <div>
+        <span class="eyebrow"><span lang="ar">متاحة الآن على Google Play</span><span lang="en">Out now on Google Play</span></span>
+        <div class="title-row">
+          <img src="media/shadow-escape-icon.png" alt="" width="64" height="64">
+          <h1 id="se-title">Shadow Escape</h1>
         </div>
-    </section>
+        <p class="lead" lang="ar">لعبة نينجا أكشن <strong>بالعربية بالكامل</strong>. قاتل زعماء ضخمة، وانط فوق الفخاخ، واطلع بالحبل، لحد ما توصل لعرش إمبراطور الظل.</p>
+        <p class="lead" lang="en">A ninja action platformer, <strong>fully in Arabic and English</strong>. Fight giant bosses, leap the traps, swing up on the rope, all the way to the Shadow Emperor's throne.</p>
 
-    <footer>
-        <p>&copy; 2026 MMSO Soft. All rights reserved.</p>
-        <a href="ShadowEscapeAppPrivacyPolicy.html">Privacy Policy</a> | 
-        <a href="mailto:mahmoudkofcis@gmail.com">Contact Us</a>
-    </footer>
+        <div class="facts">
+          <div class="fact"><b>5</b><span lang="ar">عوالم</span><span lang="en">worlds</span></div>
+          <div class="fact"><b>100</b><span lang="ar">مرحلة</span><span lang="en">levels</span></div>
+          <div class="fact"><b>15</b><span lang="ar">معركة زعماء</span><span lang="en">boss fights</span></div>
+          <div class="fact"><b>9</b><span lang="ar">قدرات نينجا</span><span lang="en">ninja powers</span></div>
+        </div>
 
+        <a class="play" href="https://play.google.com/store/apps/details?id=com.mmsosoft.shadowescape" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#34a853" d="M3.6 1.8 13.8 12 3.6 22.2c-.4-.2-.6-.6-.6-1.1V2.9c0-.5.2-.9.6-1.1Z"/><path fill="#fbbc04" d="m17.2 8.6-3.4 3.4 3.4 3.4 3.9-2.2c.9-.5.9-1.9 0-2.4l-3.9-2.2Z"/><path fill="#4285f4" d="M3.6 1.8c.3-.2.8-.2 1.2 0l12.4 6.8-3.4 3.4L3.6 1.8Z"/><path fill="#ea4335" d="m13.8 12 3.4 3.4-12.4 6.8c-.4.2-.9.2-1.2 0L13.8 12Z"/></svg>
+          <span lang="ar">نزّلها مجانًا من Google Play</span><span lang="en">Get it free on Google Play</span>
+        </a>
+      </div>
+
+      <div>
+        <div class="player" id="player">
+          <video id="trailer" controls playsinline preload="none" poster="media/trailer-poster.jpg">
+            <source id="trailer-src" src="media/shadow-escape-trailer-ar.mp4" type="video/mp4">
+          </video>
+        </div>
+        <p class="caption"><span lang="ar">فيديو من اللعب الحقيقي، 34 ثانية.</span><span lang="en">Real gameplay, 34 seconds.</span></p>
+      </div>
+    </div>
+
+    <div class="wrap" style="margin-top: clamp(40px, 6vw, 72px);">
+      <div class="shots-head">
+        <h2><span lang="ar">من جوه اللعبة</span><span lang="en">Inside the game</span></h2>
+        <span class="muted"><span lang="ar">اسحب للمزيد</span><span lang="en">Swipe for more</span></span>
+      </div>
+      <div class="shots">
+        <figure><img src="media/shot-shadow-samurai.jpg" alt="" loading="lazy" width="1280" height="720"><figcaption><span lang="ar">ساموراي الظل</span><span lang="en">The Shadow Samurai</span></figcaption></figure>
+        <figure><img src="media/shot-spider-queen.jpg" alt="" loading="lazy" width="1280" height="720"><figcaption><span lang="ar">ملكة العناكب</span><span lang="en">The Spider Queen</span></figcaption></figure>
+        <figure><img src="media/shot-frost-dragon.jpg" alt="" loading="lazy" width="1280" height="720"><figcaption><span lang="ar">تنين الصقيع</span><span lang="en">The Frost Dragon</span></figcaption></figure>
+        <figure><img src="media/shot-void-oracle.jpg" alt="" loading="lazy" width="1280" height="720"><figcaption><span lang="ar">عرّافة الفراغ</span><span lang="en">The Void Oracle</span></figcaption></figure>
+        <figure><img src="media/shot-shadow-emperor.jpg" alt="" loading="lazy" width="1280" height="720"><figcaption><span lang="ar">إمبراطور الظل</span><span lang="en">The Shadow Emperor</span></figcaption></figure>
+      </div>
+
+      <div class="points">
+        <div class="point">
+          <h3><span lang="ar">كل زعيم ليه أسلوبه</span><span lang="en">Every boss fights its own way</span></h3>
+          <p lang="ar">عشرة زعماء صغار وخمسة زعماء عوالم، لكل واحد حركاته ومراحله.</p>
+          <p lang="en">Ten mini-bosses and five world bosses, each with its own moves and phases.</p>
+        </div>
+        <div class="point">
+          <h3><span lang="ar">التسلق اليومي</span><span lang="en">The Daily Climb</span></h3>
+          <p lang="ar">برج جديد كل يوم، نفس البرج لكل اللاعبين، ولوحة صدارة لليوم.</p>
+          <p lang="en">A new tower every day, the same for every player, with a daily leaderboard.</p>
+        </div>
+        <div class="point">
+          <h3><span lang="ar">مصممة للموبايل</span><span lang="en">Made for phones</span></h3>
+          <p lang="ar">أزرار تحكم تحرّكها وتكبّرها، والمراحل بتتلعب من غير إنترنت.</p>
+          <p lang="en">Touch controls you can move and resize, and the levels play offline.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="soon-band" id="coming-soon" aria-labelledby="ds-title">
+    <div class="wrap">
+      <div class="soon-card">
+        <div class="soon-art"><img src="media/dahshan-feature.jpg" alt="" loading="lazy" width="1024" height="500"></div>
+        <div class="soon-text">
+          <span class="eyebrow soon" style="align-self: flex-start;"><span lang="ar">قريبًا على Google Play</span><span lang="en">Coming soon to Google Play</span></span>
+          <img class="soon-icon" src="media/dahshan-icon.png" alt="" width="56" height="56" loading="lazy">
+          <h2 class="dahshan" id="ds-title" lang="ar-EG" dir="rtl">دهشان الطرشويلي<small>مهمة صعيدي</small></h2>
+          <p lang="ar">عصابة الريّس توكتوكي خطفت جاموسة الحاج عبد الصبور، ودهشان طالع وراها بفرد الخرطوش وشوال قلل. أكشن وضرب نار على الطريقة الصعيدي، وضحك من أول مرحلة لآخرها.</p>
+          <p lang="en">The Tuktuki gang has kidnapped Hajj Abdel Sabour's buffalo, and his nephew Dahshan is going after it with a shotgun and a sack of clay jugs. A run-and-gun with an Upper-Egyptian sense of humour.</p>
+          <p class="muted"><span lang="ar">لعبتنا الجاية، بالعربي.</span><span lang="en">Our next game, made in Arabic.</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>&copy; 2026 MMSO Soft</span>
+    <nav aria-label="Footer">
+      <a href="ShadowEscapeAppPrivacyPolicy.html"><span lang="ar">سياسة خصوصية Shadow Escape</span><span lang="en">Shadow Escape privacy policy</span></a>
+      <a href="Se3idiSlugAppPrivacyPolicy.html"><span lang="ar">سياسة خصوصية دهشان</span><span lang="en">Dahshan privacy policy</span></a>
+      <a href="mailto:mahmoudkofcis@gmail.com"><span lang="ar">تواصل معانا</span><span lang="en">Contact us</span></a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.documentElement;
+    var video = document.getElementById("trailer");
+    var source = document.getElementById("trailer-src");
+    var player = document.getElementById("player");
+    var phone = window.matchMedia("(max-width: 700px) and (orientation: portrait)");
+
+    // The trailer in the page's language, and the 9:16 cut on a phone held upright.
+    function pickTrailer() {
+      var lang = root.lang === "en" ? "en" : "ar";
+      var tall = phone.matches;
+      var src = "media/shadow-escape-trailer-" + lang + (tall ? "-vertical" : "") + ".mp4";
+      if (source.getAttribute("src") === src) return;
+      source.setAttribute("src", src);
+      video.poster = tall ? "media/trailer-poster-tall.jpg" : "media/trailer-poster.jpg";
+      player.classList.toggle("tall", tall);
+      video.load();
+    }
+
+    function setLang(lang) {
+      root.lang = lang;
+      root.dir = lang === "ar" ? "rtl" : "ltr";
+      try { localStorage.setItem("mmso-lang", lang); } catch (e) {}
+      pickTrailer();
+    }
+
+    var saved = null;
+    try { saved = localStorage.getItem("mmso-lang"); } catch (e) {}
+    var browser = (navigator.language || "").toLowerCase().indexOf("ar") === 0 ? "ar" : "en";
+    setLang(saved === "ar" || saved === "en" ? saved : browser);
+
+    document.getElementById("lang-toggle").addEventListener("click", function () {
+      setLang(root.lang === "ar" ? "en" : "ar");
+    });
+    if (phone.addEventListener) phone.addEventListener("change", pickTrailer);
+  })();
+</script>
 </body>
 </html>
