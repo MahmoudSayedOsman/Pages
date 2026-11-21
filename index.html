@@ -150,6 +150,8 @@
   @media (max-width: 900px) { .soon-card { grid-template-columns: 1fr; } }
   .soon-art { position: relative; min-height: 260px; }
   .soon-art img { width: 100%; height: 100%; object-fit: cover; }
+  .soon-art { display: flex; align-items: center; background: #000; }
+  .soon-art .player { width: 100%; border-radius: 0; box-shadow: none; }
   .soon-text { padding: clamp(24px, 4vw, 44px); display: flex; flex-direction: column; gap: 14px; justify-content: center; }
   .dahshan {
     font-family: "Lalezar", "Readex Pro", sans-serif; font-weight: 400;
@@ -192,7 +194,13 @@
   <section class="soon-band" id="coming-soon" aria-labelledby="ds-title">
     <div class="wrap">
       <div class="soon-card">
-        <div class="soon-art"><img src="media/dahshan-feature.jpg" alt="" loading="lazy" width="1024" height="500"></div>
+        <div class="soon-art">
+          <div class="player" id="ds-player">
+            <video id="ds-trailer" controls playsinline preload="none" poster="media/dahshan-trailer-poster.jpg">
+              <source id="ds-trailer-src" src="media/dahshan-trailer.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
         <div class="soon-text">
           <span class="eyebrow soon" style="align-self: flex-start;"><span lang="ar">نزلت على Google Play</span><span lang="en">Out now on Google Play</span></span>
           <img class="soon-icon" src="media/dahshan-icon.png" alt="" width="56" height="56" loading="lazy">
@@ -325,6 +333,21 @@
       setLang(root.lang === "ar" ? "en" : "ar");
     });
     if (phone.addEventListener) phone.addEventListener("change", pickTrailer);
+
+    // Dahshan's trailer the same way: the 9:16 cut on a phone held upright.
+    var dsVideo = document.getElementById("ds-trailer"), dsSrc = document.getElementById("ds-trailer-src"), dsPlayer = document.getElementById("ds-player");
+    function pickDahshan() {
+      if (!dsVideo) return;
+      var tall = phone.matches;
+      var src = "media/dahshan-trailer" + (tall ? "-vertical" : "") + ".mp4";
+      if (dsSrc.getAttribute("src") === src) return;
+      dsSrc.setAttribute("src", src);
+      dsVideo.poster = tall ? "media/dahshan-trailer-poster-tall.jpg" : "media/dahshan-trailer-poster.jpg";
+      dsPlayer.classList.toggle("tall", tall);
+      dsVideo.load();
+    }
+    pickDahshan();
+    if (phone.addEventListener) phone.addEventListener("change", pickDahshan);
   })();
 </script>
 </body>
