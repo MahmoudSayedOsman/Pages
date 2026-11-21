@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>دهشان الطرشويلي: مهمة صعيدي</title>
+<meta name="description" content="لعبة أكشن صعيدي على أندرويد: دهشان وابن العم والحاجة بيجروا ورا الجاموسة المخطوفة من الصعيد للعاصمة.">
+<meta property="og:title" content="دهشان الطرشويلي: مهمة صعيدي">
+<meta property="og:description" content="الجاموسة اتخطفت… ودهشان مش هيسيبها. العبها دلوقتي على Google Play.">
+<meta property="og:image" content="img/poster.jpg">
+<link rel="icon" href="img/icon.png">
+<style>
+  :root {
+    --ink: #2b1a0e; --sand: #f6e7c8; --sand2: #ecd3a2; --gold: #ffce4a; --red: #b8322a; --cream: #fff6e2;
+    --dark: #1c120a; --muted: #6b4e33;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--sand); color: var(--ink); font-family: "Segoe UI", Tahoma, "Noto Sans Arabic", sans-serif; line-height: 1.7; }
+  a { color: inherit; }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
+
+  /* The top: the title art, the name, the button */
+  header.hero { position: relative; min-height: 78vh; display: flex; align-items: flex-end; color: var(--cream);
+    background: var(--dark) url("img/hero.jpg") center 35% / cover no-repeat; }
+  header.hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(20,10,4,.55) 0%, rgba(20,10,4,0) 30%, rgba(20,10,4,.15) 55%, rgba(20,10,4,.92) 100%); }
+  header.hero .wrap { position: relative; z-index: 1; padding-bottom: 48px; text-align: center; width: 100%; }
+  .logo { display: inline-flex; align-items: center; gap: 14px; }
+  .logo img { width: 84px; height: 84px; border-radius: 20px; box-shadow: 0 6px 18px rgba(0,0,0,.45); }
+  h1 { margin: 0; font-size: clamp(36px, 7vw, 72px); line-height: 1.15; color: var(--gold); text-shadow: 0 3px 0 var(--ink), 0 0 18px rgba(0,0,0,.6); }
+  .sub { font-size: clamp(20px, 3.6vw, 32px); font-weight: 700; margin: 4px 0 6px; text-shadow: 0 2px 6px rgba(0,0,0,.8); }
+  .tag { font-size: clamp(16px, 2.6vw, 21px); margin: 0 auto 24px; max-width: 640px; text-shadow: 0 2px 6px rgba(0,0,0,.8); }
+  .play { display: inline-flex; align-items: center; gap: 12px; background: var(--dark); color: #fff; text-decoration: none;
+    padding: 12px 26px; border-radius: 14px; border: 2px solid #fff3; font-weight: 700; font-size: 19px; box-shadow: 0 6px 16px rgba(0,0,0,.5); }
+  .play:hover { background: #000; }
+  .play svg { width: 28px; height: 28px; }
+  .play small { display: block; font-weight: 400; font-size: 12px; opacity: .8; }
+
+  section { padding: 56px 0; }
+  section h2 { font-size: clamp(26px, 4vw, 36px); margin: 0 0 8px; color: var(--red); }
+  section p.lead { margin: 0 0 28px; color: var(--muted); font-size: 18px; }
+
+  /* The video */
+  .video { background: var(--dark); color: var(--cream); }
+  .video h2 { color: var(--gold); }
+  .video p.lead { color: #e8d9bf; }
+  video { width: 100%; border-radius: 14px; display: block; background: #000; box-shadow: 0 10px 30px rgba(0,0,0,.5); }
+
+  /* What is in it */
+  .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 18px; }
+  .feature { background: var(--cream); border: 3px solid var(--ink); border-radius: 16px; padding: 18px 18px 14px; box-shadow: 4px 5px 0 var(--ink); }
+  .feature b { display: block; font-size: 20px; margin-bottom: 4px; }
+  .feature span { color: var(--muted); }
+
+  /* Pictures */
+  .shots { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 14px; }
+  .shots img { width: 100%; border-radius: 12px; border: 3px solid var(--ink); display: block; aspect-ratio: 16/9; object-fit: cover; }
+  .story { background: var(--sand2); }
+
+  footer { background: var(--dark); color: #d9c7a8; padding: 28px 0; font-size: 15px; text-align: center; }
+  footer a { color: var(--gold); }
+  footer .links { display: flex; gap: 18px; justify-content: center; flex-wrap: wrap; margin-bottom: 8px; }
+
+  .en { direction: ltr; text-align: left; }
+  .en-block { margin-top: 28px; padding-top: 18px; border-top: 2px dashed #6b4e3355; }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="logo"><img src="img/icon.png" alt=""><h1>دهشان الطرشويلي</h1></div>
+    <div class="sub">مهمة صعيدي</div>
+    <p class="tag">الجاموسة اتخطفت… ودهشان مش هيسيبها. اجري واضرب واركب، من نجع الصعيد لحد شوارع العاصمة.</p>
+    <a class="play" href="https://play.google.com/store/apps/details?id=com.mmsosoft.se3idislug" rel="noopener">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#34a853" d="M3.6 2.2 13.4 12l-9.8 9.8c-.4-.2-.6-.6-.6-1.1V3.3c0-.5.2-.9.6-1.1z"/><path fill="#fbbc04" d="m16.8 8.6-3.4 3.4 3.4 3.4 3.9-2.2c1.1-.6 1.1-1.8 0-2.4z"/><path fill="#4285f4" d="M3.6 2.2c.3-.2.8-.2 1.2 0l12 6.4-3.4 3.4z"/><path fill="#ea4335" d="M13.4 12l3.4 3.4-12 6.4c-.4.2-.9.2-1.2 0z"/></svg>
+      <span><small>متاحة دلوقتي على</small>Google Play</span>
+    </a>
+  </div>
+</header>
+
+<section class="video">
+  <div class="wrap">
+    <h2>شوف اللعب</h2>
+    <p class="lead">خمس عوالم، تلات أبطال، ركوبات بالهبل، وعصابات في كماين.</p>
+    <video src="promo.mp4" poster="img/poster.jpg" controls preload="none" playsinline></video>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>فيها إيه؟</h2>
+    <p class="lead">لعبة أكشن جري وضرب بالكامل بالمصري، بروح الصعيد وشوارع مصر.</p>
+    <div class="features">
+      <div class="feature"><b>5 عوالم</b><span>النجع، الغيطان والترعة، سوق الثلاثاء، الأقصر والنيل، والعاصمة. 100 مرحلة.</span></div>
+      <div class="feature"><b>3 أبطال</b><span>دهشان بالشومة، ابن العم بالنبلة، والحاجة بالشبشب.</span></div>
+      <div class="feature"><b>15 ركوبة</b><span>توكتوك، ميكروباص، عربية، حصان، جمل، فلوكة، منطاد، وطيارة رش.</span></div>
+      <div class="feature"><b>زعما وكماين</b><span>الميكروباص اللي بيقف على رجليه، أبو الهول الصفيح، والتوك توك الأم.</span></div>
+      <div class="feature"><b>أحداث الشارع</b><span>عربية الفول، الفرح، الماتش، والنور اللي بيقطع في نص الخناقة.</span></div>
+      <div class="feature"><b>كل يوم جديد</b><span>مهام يومية وأسبوعية، إنجازات بلبس جديد، والساحة والهروب الكبير.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="story">
+  <div class="wrap">
+    <h2>الحكاية</h2>
+    <p class="lead">عصابة التوكتوك خطفت جاموسة الحاج… ودهشان طالع وراها من بلد لبلد.</p>
+    <div class="shots">
+      <img src="img/story_w1_intro_1.jpg" alt="العصابة بتخطف الجاموسة" loading="lazy">
+      <img src="img/story_w1_outro_1.jpg" alt="دهشان بيجري ورا الجاموسة" loading="lazy">
+      <img src="img/story_w4_outro_1.jpg" alt="دهشان فوق أبو الهول" loading="lazy">
+      <img src="img/story_w5_outro_2.jpg" alt="دهشان والجاموسة على النيل" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>من جوه اللعبة</h2>
+    <div class="shots">
+      <img src="img/w1_street_2.jpg" alt="" loading="lazy">
+      <img src="img/w1_tuktuk_1.jpg" alt="" loading="lazy">
+      <img src="img/w3_market_2.jpg" alt="" loading="lazy">
+      <img src="img/w3_microbus_1.jpg" alt="" loading="lazy">
+      <img src="img/w4_horse_1.jpg" alt="" loading="lazy">
+      <img src="img/w5_boss_2.jpg" alt="" loading="lazy">
+    </div>
+
+    <div class="en-block en">
+      <h2>Dahshan: Saidi Mission</h2>
+      <p>The buffalo has been stolen, and Dahshan is not letting it go. An Egyptian run-and-gun action game, all in Egyptian Arabic: five worlds from an Upper-Egyptian village to the Capital, three heroes, fifteen rides, bosses, street events and daily missions. Free on Android.</p>
+      <a class="play" href="https://play.google.com/store/apps/details?id=com.mmsosoft.se3idislug" rel="noopener"><span><small>Get it on</small>Google Play</span></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="links">
+      <a href="https://play.google.com/store/apps/details?id=com.mmsosoft.se3idislug" rel="noopener">Google Play</a>
+      <a href="../Se3idiSlugAppPrivacyPolicy.html">سياسة الخصوصية · Privacy Policy</a>
+      <a href="../">MMSO Soft</a>
+    </div>
+    <div>© 2026 mmsosoft · @mmsosoft</div>
+  </div>
+</footer>
+
+</body>
+</html>
