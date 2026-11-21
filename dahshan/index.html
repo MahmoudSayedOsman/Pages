@@ -19,16 +19,20 @@
   a { color: inherit; }
   .wrap { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
 
-  /* The top: the title art, the name, the button */
-  header.hero { position: relative; min-height: 78vh; display: flex; align-items: flex-end; color: var(--cream);
-    background: var(--dark) url("img/hero.jpg") center 35% / cover no-repeat; }
-  header.hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(20,10,4,.55) 0%, rgba(20,10,4,0) 30%, rgba(20,10,4,.15) 55%, rgba(20,10,4,.92) 100%); }
-  header.hero .wrap { position: relative; z-index: 1; padding-bottom: 48px; text-align: center; width: 100%; }
-  .logo { display: inline-flex; align-items: center; gap: 14px; }
-  .logo img { width: 84px; height: 84px; border-radius: 20px; box-shadow: 0 6px 18px rgba(0,0,0,.45); }
-  h1 { margin: 0; font-size: clamp(36px, 7vw, 72px); line-height: 1.15; color: var(--gold); text-shadow: 0 3px 0 var(--ink), 0 0 18px rgba(0,0,0,.6); }
-  .sub { font-size: clamp(20px, 3.6vw, 32px); font-weight: 700; margin: 4px 0 6px; text-shadow: 0 2px 6px rgba(0,0,0,.8); }
-  .tag { font-size: clamp(16px, 2.6vw, 21px); margin: 0 auto 24px; max-width: 640px; text-shadow: 0 2px 6px rgba(0,0,0,.8); }
+  /* The site's bar, as on the home page */
+  .site { background: #0e0c15; color: #e9e4f5; position: sticky; top: 0; z-index: 10; }
+  .site .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 58px; flex-wrap: wrap; }
+  .site .brand { font-weight: 700; letter-spacing: .14em; text-decoration: none; direction: ltr; color: #fff; }
+  .site .brand b { color: #a78bfa; }
+  .site nav { display: flex; gap: 18px; flex-wrap: wrap; font-size: 15px; }
+  .site nav a { color: #b9b2cc; text-decoration: none; }
+  .site nav a:hover, .site nav a[aria-current] { color: #fff; }
+
+  /* The top: the drawn title picture whole (the name is drawn in it), then the line and the button on dark, not over it */
+  .hero { background: var(--dark); color: var(--cream); text-align: center; }
+  .hero img.key { display: block; width: 100%; max-width: 1400px; margin: 0 auto; aspect-ratio: 16/9; object-fit: cover; }
+  .hero .wrap { padding: 26px 16px 44px; }
+  .tag { font-size: clamp(17px, 2.6vw, 22px); margin: 0 auto 22px; max-width: 680px; color: #f1e3c6; }
   .play { display: inline-flex; align-items: center; gap: 12px; background: var(--dark); color: #fff; text-decoration: none;
     padding: 12px 26px; border-radius: 14px; border: 2px solid #fff3; font-weight: 700; font-size: 19px; box-shadow: 0 6px 16px rgba(0,0,0,.5); }
   .play:hover { background: #000; }
@@ -66,17 +70,29 @@
 </head>
 <body>
 
-<header class="hero">
+<header class="site">
   <div class="wrap">
-    <div class="logo"><img src="img/icon.png" alt=""><h1>دهشان الطرشويلي</h1></div>
-    <div class="sub">مهمة صعيدي</div>
+    <a class="brand" href="../">MMSO <b>Soft</b></a>
+    <nav aria-label="Main">
+      <a href="../">الرئيسية</a>
+      <a href="./" aria-current="page">دهشان</a>
+      <a href="../#shadow-escape">Shadow Escape</a>
+      <a href="../Se3idiSlugAppPrivacyPolicy.html">سياسة الخصوصية</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" style="padding:0">
+  <h1 style="position:absolute;left:-9999px">دهشان الطرشويلي: مهمة صعيدي</h1>
+  <img class="key" src="img/hero_title.jpg" alt="دهشان الطرشويلي: مهمة صعيدي">
+  <div class="wrap">
     <p class="tag">الجاموسة اتخطفت… ودهشان مش هيسيبها. اجري واضرب واركب، من نجع الصعيد لحد شوارع العاصمة.</p>
     <a class="play" href="https://play.google.com/store/apps/details?id=com.mmsosoft.se3idislug" rel="noopener">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#34a853" d="M3.6 2.2 13.4 12l-9.8 9.8c-.4-.2-.6-.6-.6-1.1V3.3c0-.5.2-.9.6-1.1z"/><path fill="#fbbc04" d="m16.8 8.6-3.4 3.4 3.4 3.4 3.9-2.2c1.1-.6 1.1-1.8 0-2.4z"/><path fill="#4285f4" d="M3.6 2.2c.3-.2.8-.2 1.2 0l12 6.4-3.4 3.4z"/><path fill="#ea4335" d="M13.4 12l3.4 3.4-12 6.4c-.4.2-.9.2-1.2 0z"/></svg>
       <span><small>متاحة دلوقتي على</small>Google Play</span>
     </a>
   </div>
-</header>
+</section>
 
 <section class="video">
   <div class="wrap">
@@ -140,6 +156,8 @@
       <a href="https://play.google.com/store/apps/details?id=com.mmsosoft.se3idislug" rel="noopener">Google Play</a>
       <a href="../Se3idiSlugAppPrivacyPolicy.html">سياسة الخصوصية · Privacy Policy</a>
       <a href="../">MMSO Soft</a>
+      <a href="../#shadow-escape">Shadow Escape</a>
+      <a href="mailto:mahmoudkofcis@gmail.com">تواصل معانا</a>
     </div>
     <div>© 2026 mmsosoft · @mmsosoft</div>
   </div>
