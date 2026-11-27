@@ -178,6 +178,21 @@
   }
   .follow a:hover { border-color: var(--violet); color: var(--violet); }
   footer .follow { margin: 0; }
+  /* Each network's own mark, from Simple Icons (CC0), drawn as a mask so it takes the brand's colour. */
+  .follow a { display: inline-flex; align-items: center; gap: 8px; }
+  .follow a i {
+    width: 18px; height: 18px; flex: none; background: var(--brand, currentColor);
+    -webkit-mask: var(--icon) center / contain no-repeat; mask: var(--icon) center / contain no-repeat;
+  }
+  .follow a.tiktok   { --brand: #ffffff; --icon: url("https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/tiktok.svg"); }
+  .follow a.youtube  { --brand: #ff0000; --icon: url("https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/youtube.svg"); }
+  .follow a.facebook { --brand: #0866ff; --icon: url("https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/facebook.svg"); }
+  .follow a.x        { --brand: #ffffff; --icon: url("https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/x.svg"); }
+  .follow a.linkedin { --brand: #0a66c2; --icon: url("https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/linkedin.svg"); }
+  .follow a.reddit   { --brand: #ff4500; --icon: url("https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/reddit.svg"); }
+  /* In the footer: the marks alone, round. */
+  footer .follow a { padding: 0; width: 40px; height: 40px; justify-content: center; }
+  footer .follow a i { width: 20px; height: 20px; }
 
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
@@ -261,10 +276,10 @@
         <p class="caption"><span lang="ar">فيديو من اللعب الحقيقي، 34 ثانية.</span><span lang="en">Real gameplay, 34 seconds.</span></p>
         <div class="follow">
           <span class="label"><span lang="ar">تابعنا:</span><span lang="en">Follow us:</span></span>
-          <a href="https://www.tiktok.com/@mmsosoft" target="_blank" rel="noopener">TikTok</a>
-          <a href="https://www.youtube.com/@mmsosoft" target="_blank" rel="noopener">YouTube</a>
-          <a href="https://www.facebook.com/mmsosoft" target="_blank" rel="noopener">Facebook</a>
-          <a href="https://x.com/mmsosoft" target="_blank" rel="noopener">X</a>
+          <a class="tiktok" href="https://www.tiktok.com/@mmsosoft" target="_blank" rel="noopener"><i aria-hidden="true"></i>TikTok</a>
+          <a class="youtube" href="https://www.youtube.com/@mmsosoft" target="_blank" rel="noopener"><i aria-hidden="true"></i>YouTube</a>
+          <a class="facebook" href="https://www.facebook.com/mmsosoft" target="_blank" rel="noopener"><i aria-hidden="true"></i>Facebook</a>
+          <a class="x" href="https://x.com/mmsosoft" target="_blank" rel="noopener"><i aria-hidden="true"></i>X</a>
         </div>
       </div>
     </div>
@@ -313,12 +328,12 @@
       <a href="mailto:mahmoudkofcis@gmail.com"><span lang="ar">تواصل معانا</span><span lang="en">Contact us</span></a>
     </nav>
     <div class="follow" aria-label="Social media">
-      <a href="https://www.tiktok.com/@mmsosoft" target="_blank" rel="noopener">TikTok</a>
-      <a href="https://www.youtube.com/@mmsosoft" target="_blank" rel="noopener">YouTube</a>
-      <a href="https://www.facebook.com/mmsosoft" target="_blank" rel="noopener">Facebook</a>
-      <a href="https://x.com/mmsosoft" target="_blank" rel="noopener">X</a>
-      <a href="https://www.linkedin.com/in/mmsosoft" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="https://www.reddit.com/user/mmsosoft" target="_blank" rel="noopener">Reddit</a>
+      <a class="tiktok" href="https://www.tiktok.com/@mmsosoft" target="_blank" rel="noopener" aria-label="TikTok" title="TikTok"><i aria-hidden="true"></i></a>
+      <a class="youtube" href="https://www.youtube.com/@mmsosoft" target="_blank" rel="noopener" aria-label="YouTube" title="YouTube"><i aria-hidden="true"></i></a>
+      <a class="facebook" href="https://www.facebook.com/mmsosoft" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook"><i aria-hidden="true"></i></a>
+      <a class="x" href="https://x.com/mmsosoft" target="_blank" rel="noopener" aria-label="X" title="X"><i aria-hidden="true"></i></a>
+      <a class="linkedin" href="https://www.linkedin.com/in/mmsosoft" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><i aria-hidden="true"></i></a>
+      <a class="reddit" href="https://www.reddit.com/user/mmsosoft" target="_blank" rel="noopener" aria-label="Reddit" title="Reddit"><i aria-hidden="true"></i></a>
     </div>
   </div>
 </footer>
