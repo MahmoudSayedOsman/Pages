@@ -168,6 +168,17 @@
   .foot a { color: var(--muted); text-decoration: none; }
   .foot a:hover { color: var(--text); text-decoration: underline; }
 
+  /* Where to follow the studio: under the trailer, and again in the footer. */
+  .follow { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 16px; }
+  .follow .label { color: var(--muted); font-size: 0.9rem; margin-inline-end: 4px; }
+  .follow a {
+    direction: ltr; font-size: 0.85rem; font-weight: 600; text-decoration: none;
+    color: var(--text); padding: 5px 14px; border-radius: 999px;
+    border: 1px solid var(--line); background: var(--panel); transition: border-color 0.2s, color 0.2s;
+  }
+  .follow a:hover { border-color: var(--violet); color: var(--violet); }
+  footer .follow { margin: 0; }
+
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     .play { transition: none; }
@@ -248,6 +259,13 @@
           </video>
         </div>
         <p class="caption"><span lang="ar">فيديو من اللعب الحقيقي، 34 ثانية.</span><span lang="en">Real gameplay, 34 seconds.</span></p>
+        <div class="follow">
+          <span class="label"><span lang="ar">تابعنا:</span><span lang="en">Follow us:</span></span>
+          <a href="https://www.tiktok.com/@mmsosoft" target="_blank" rel="noopener">TikTok</a>
+          <a href="https://www.youtube.com/@mmsosoft" target="_blank" rel="noopener">YouTube</a>
+          <a href="https://www.facebook.com/mmsosoft" target="_blank" rel="noopener">Facebook</a>
+          <a href="https://x.com/mmsosoft" target="_blank" rel="noopener">X</a>
+        </div>
       </div>
     </div>
 
@@ -294,8 +312,33 @@
       <a href="Se3idiSlugAppPrivacyPolicy.html"><span lang="ar">سياسة خصوصية دهشان</span><span lang="en">Dahshan privacy policy</span></a>
       <a href="mailto:mahmoudkofcis@gmail.com"><span lang="ar">تواصل معانا</span><span lang="en">Contact us</span></a>
     </nav>
+    <div class="follow" aria-label="Social media">
+      <a href="https://www.tiktok.com/@mmsosoft" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://www.youtube.com/@mmsosoft" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.facebook.com/mmsosoft" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://x.com/mmsosoft" target="_blank" rel="noopener">X</a>
+      <a href="https://www.linkedin.com/in/mmsosoft" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.reddit.com/user/mmsosoft" target="_blank" rel="noopener">Reddit</a>
+    </div>
   </div>
 </footer>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "MMSO Soft",
+  "url": "https://mmsosoft.com",
+  "logo": "https://mmsosoft.com/media/shadow-escape-icon.png",
+  "sameAs": [
+    "https://www.tiktok.com/@mmsosoft",
+    "https://www.youtube.com/@mmsosoft",
+    "https://www.facebook.com/mmsosoft",
+    "https://x.com/mmsosoft",
+    "https://www.linkedin.com/in/mmsosoft",
+    "https://www.reddit.com/user/mmsosoft"
+  ]
+}
+</script>
 
 <script>
   (function () {
